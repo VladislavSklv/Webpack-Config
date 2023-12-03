@@ -12,21 +12,40 @@ export const App: React.FC = () => {
     const increment = () => setCount(prev => prev + 1)
     const decrement = () => setCount(prev => prev - 1)
 
+    /* 
+
+    if(__PLATFORM__ === 'desktop'){
+        return <div>ISDESKTOPPLATFORM</div>
+    }
+
+    if(__PLATFORM__ === 'mobile'){
+        return <div>ISMOBILEPLATFORM</div>
+    } */
+
+    function TODO1() {
+        TODO2()
+    }
+    function TODO2() {
+        throw new Error();
+    }
+
     return (
-        <div>
+        <div data-testid={'App'}>
+            <h1>platform={__PLATFORM__}</h1>
             <div className={classes.images}>
                 <img src={AvatarPng} alt='png'/>
                 <img src={AvatarJpg} alt="jpg" />
             </div>
+            zaebalsya
             <div>
-                <PhoneSvg width={100} height={100} fill={'cyan'}/>
+                <PhoneSvg width={100} height={100} fill={'tan'}/>
             </div>
             <Link to='/about'>About</Link>
             <br />
             <Link to='/shop'>Shop</Link>
             <h1 className={classes.value}>{count}</h1>
-            <button className={classes.button} onClick={increment}>+</button>
-            <button className={classes.button} onClick={decrement}>-</button>
+            <button data-testid={'button1'} className={classes.button} onClick={/* increment */ TODO1}>+</button>
+            <button data-testid={'button2s'} className={classes.button} onClick={decrement}>-</button>
 
             <Outlet/>
         </div>
